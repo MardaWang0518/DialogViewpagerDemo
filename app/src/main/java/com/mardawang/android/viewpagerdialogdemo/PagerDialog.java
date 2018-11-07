@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
+import com.mardawang.android.viewpagerdialogdemo.transformer.MyTransformer;
+import com.mardawang.android.viewpagerdialogdemo.transformer.TransType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +45,12 @@ public class PagerDialog extends Dialog {
         setContentView(R.layout.layout_dialog);
         viewPager =  findViewById(R.id.dialog_viewpager);
         viewPager.setAdapter(createAdapter());
-        viewPager.setPageTransformer(true, new ImagePagerTransformer());
+        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.H3D));
+//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.FADEIN));
+//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.TANDEM));
+//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.H3DINTO));
+//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.OVERLAP));
+//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.ARCROATE));
         viewPager.setOffscreenPageLimit(images.length);
     }
 
@@ -58,6 +65,7 @@ public class PagerDialog extends Dialog {
             int dp2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getContext
                     ().getResources().getDisplayMetrics());
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dp1, dp1);
+
             View parent = LayoutInflater.from(getContext()).inflate(R.layout.item_pager, null);
             ImageView imageView =  parent.findViewById(R.id.imageView);
             LinearLayout dotsLayout =  parent.findViewById(R.id.dots_layout);
@@ -93,8 +101,6 @@ public class PagerDialog extends Dialog {
 
     @Override
     public void show() {
-        if (images.length > 0) {
-            super.show();
-        }
+        if (images.length > 0) super.show();
     }
 }

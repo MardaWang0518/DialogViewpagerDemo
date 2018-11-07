@@ -25,6 +25,6 @@
         android:background="#3579ff"
         android:padding="9dp"
         android:gravity="center_horizontal"
-        android:layout_margin="30dp"/>
+        android:layout_margin="20dp"/>
 
 </LinearLayout>
