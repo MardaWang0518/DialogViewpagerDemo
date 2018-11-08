@@ -31,10 +31,14 @@ import java.util.List;
 public class PagerDialog extends Dialog {
     private int[] images;
     private ViewPager viewPager = null;
+    int type = 0;
+    TransType[] type_arr = {TransType.H3D,TransType.H3DINTO,TransType.FADEIN,TransType.TANDEM,TransType.OVERLAP,TransType.ARCROATE};
 
-    public PagerDialog( Context context, int[] images) {
+
+    public PagerDialog( Context context, int[] images,int type) {
         super(context, R.style.pagerDialog);
         this.images = images;
+        this.type = type;
     }
 
     @Override
@@ -45,12 +49,7 @@ public class PagerDialog extends Dialog {
         setContentView(R.layout.layout_dialog);
         viewPager =  findViewById(R.id.dialog_viewpager);
         viewPager.setAdapter(createAdapter());
-        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.H3D));
-//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.FADEIN));
-//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.TANDEM));
-//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.H3DINTO));
-//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.OVERLAP));
-//        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(TransType.ARCROATE));
+        viewPager.setPageTransformer(true, MyTransformer.getMyTransformer(type_arr[type]));
         viewPager.setOffscreenPageLimit(images.length);
     }
 

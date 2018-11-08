@@ -11,20 +11,95 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textSize="16sp"
         android:textColor="#333333"
-        />
+        android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/tv_show"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="show it"
-        android:textColor="#ffffff"
-        android:background="#3579ff"
-        android:padding="9dp"
-        android:gravity="center_horizontal"
-        android:layout_margin="20dp"/>
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="#3579FF"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="H3D"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="#3579FF"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="H3DINTO"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#3579FF"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="FADEIN"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="#37959f"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="TANDEM"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="#37959f"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="OVERLAP"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/tv6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#37959f"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="ARCROATE"
+            android:textColor="#ffffff" />
+
+
+    </LinearLayout>
 
 </LinearLayout>
