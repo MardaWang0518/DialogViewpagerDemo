@@ -8,8 +8,53 @@
 ![image](img03.png)
 
 ###部分实现
-
+  * viewpager 填充
+  
 ```
+for (int i = 0; i < images.length; i++) {
+            final int j = i;
+            ImageView[] mDots = new ImageView[images.length];
+            int dp1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 7, getContext
+                    ().getResources().getDisplayMetrics());
+            int dp2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getContext
+                    ().getResources().getDisplayMetrics());
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dp1, dp1);
+            
+            View parent = LayoutInflater.from(getContext()).inflate(R.layout.item_pager, null);
+            ImageView imageView =  parent.findViewById(R.id.imageView);
+            LinearLayout dotsLayout =  parent.findViewById(R.id.dots_layout);
+            Glide.with(getContext()).load(images[i]).into(imageView);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dismiss();
+                }
+            });
+
+
+            if (images.length > 0 && images.length != 1) {
+                for (int k = 0; k < images.length; k++) {
+                    mDots[k] = new ImageView(getContext());
+                    mDots[k].setBackgroundResource(R.drawable.dialog_dots_layout);
+                    params.leftMargin = dp2;
+                    params.rightMargin = dp2;
+                    if (k == i) {
+                        mDots[k].setSelected(true);
+                    } else {
+                        mDots[k].setSelected(false);
+                    }
+                    mDots[k].setLayoutParams(params);
+                    dotsLayout.addView(mDots[k], k);
+                }
+            }
+            views.add(parent);
+        }
+```
+
+ * 图片切换的动画
+ 
+ 
+ ```
  public static ViewPager.PageTransformer getMyTransformer(TransType type, float maxValue) {
         ViewPager.PageTransformer transformer = null;
         switch (type) {
